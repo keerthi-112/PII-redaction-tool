@@ -1,0 +1,52 @@
+[
+    {
+        "original": "John Doe",
+        "replacement": "Allison Hill",
+        "entity_type": "PERSON"
+    },
+    {
+        "original": "john.doe@example.com",
+        "replacement": "allison.hill@example.com",
+        "entity_type": "EMAIL"
+    },
+    {
+        "original": "+1 987-654-3210",
+        "replacement": "+1 043-321-8196",
+        "entity_type": "PHONE_NUMBER"
+    },
+    {
+        "original": "123-45-6789",
+        "replacement": "229-18-1680",
+        "entity_type": "SSN"
+    },
+    {
+        "original": "15/08/1998",
+        "replacement": "12/08/1991",
+        "entity_type": "DATE_OF_BIRTH"
+    },
+    {
+        "original": "Baker",
+        "replacement": "Kimberly Garza",
+        "entity_type": "PERSON"
+    },
+    {
+        "original": "London",
+        "replacement": "38908 Jennifer Squares, Robinsonshire, KY 01352",
+        "entity_type": "ADDRESS"
+    },
+    {
+        "original": "192.168.1.100",
+        "replacement": "181.27.237.216",
+        "entity_type": "IP_ADDRESS"
+    },
+    {
+        "original": "4111 1111 1111 1111",
+        "replacement": "0013 3890 8386 3794",
+        "entity_type": "CREDIT_CARD"
+    },
+    {
+        "original": "Acme Corporation",
+        "replacement": "Henderson, Ramirez and Lewis",
+        "entity_type": "ORGANIZATION"
+    }
+]
