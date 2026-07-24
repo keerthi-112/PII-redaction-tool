@@ -9,9 +9,9 @@ import spacy
 from docx import Document
 from presidio_analyzer import AnalyzerEngine
 
-from config import SPACY_MODEL
+from .config import SPACY_MODEL
 
-from detector_patterns import (
+from .detector_patterns import (
     EMAIL_REGEX,
     PHONE_REGEX,
     SSN_REGEX,
@@ -24,7 +24,7 @@ ORG_REGEX = re.compile(
     r"(?:Corporation|Corp|Inc|Incorporated|Ltd|Limited|LLC|PLC|Company|Co)\b"
 )
 
-from utils import DetectedEntity
+from .utils import DetectedEntity
 
 
 class Discovery:

@@ -5,7 +5,7 @@ import re
 from collections import defaultdict
 from typing import Dict, List
 
-from utils import DetectedEntity
+from .utils import DetectedEntity
 
 
 class Validation:

@@ -1,5 +1,8 @@
 python-docx
-faker
+Faker
 spacy
 presidio-analyzer
 phonenumbers
+fastapi
+uvicorn
+python-multipart

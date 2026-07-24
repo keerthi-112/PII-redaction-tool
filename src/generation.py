@@ -6,7 +6,7 @@ from typing import Dict, List
 
 from faker import Faker
 
-from utils import DetectedEntity
+from .utils import DetectedEntity
 
 
 class Generation:

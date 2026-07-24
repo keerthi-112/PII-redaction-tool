@@ -1,5 +1,3 @@
-# Placeholder rewrite module.
-# Placeholder rewrite module.
 from __future__ import annotations
 
 from typing import List
@@ -8,7 +6,7 @@ from docx.document import Document as DocxDocument
 from docx.table import Table, _Cell
 from docx.text.paragraph import Paragraph
 
-from utils import DetectedEntity
+from .utils import DetectedEntity
 
 
 class Rewrite:

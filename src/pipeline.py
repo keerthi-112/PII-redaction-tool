@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Dict, List
 
-from config import (
+from .config import (
     INPUT_FILE,
     OUTPUT_FILE,
     MAPPING_FILE,
@@ -11,16 +11,16 @@ from config import (
     SAVE_REPORT,
 )
 
-from discovery import Discovery
-from generation import Generation
-from validation import Validation
-from rewrite import Rewrite
-
-from utils import (
+from .discovery import Discovery
+from .generation import Generation
+from .validation import Validation
+from .rewrite import Rewrite
+from .utils import (
     DetectedEntity,
     ensure_directory,
     save_json,
 )
+
 
 
 class Pipeline:
@@ -84,17 +84,23 @@ class Pipeline:
     # Execute Pipeline
     # =====================================================
 
-    def execute(self):
+    def execute(
+        self,
+        input_file=INPUT_FILE,
+        output_file=OUTPUT_FILE,
+        mapping_file=MAPPING_FILE,
+        report_file=REPORT_FILE,
+    ):
 
         print("\n========== PII Redaction Pipeline ==========\n")
 
-        ensure_directory(OUTPUT_FILE.parent)
+        ensure_directory(output_file.parent)
 
         # ---------------------------------------------
         # Discovery
         # ---------------------------------------------
 
-        document, entities = self.discovery.run(INPUT_FILE)
+        document, entities = self.discovery.run(input_file)
 
         # ---------------------------------------------
         # Generation
@@ -126,9 +132,9 @@ class Pipeline:
         # Save DOCX
         # ---------------------------------------------
 
-        document.save(OUTPUT_FILE)
+        document.save(output_file)
 
-        print(f"\n✓ Redacted document saved to:\n{OUTPUT_FILE}")
+        print(f"\n✓ Redacted document saved to:\n{output_file}")
 
         # ---------------------------------------------
         # Save Mapping
@@ -138,10 +144,10 @@ class Pipeline:
 
             save_json(
                 self.build_mapping(entities),
-                MAPPING_FILE,
+                mapping_file,
             )
 
-            print(f"✓ Mapping saved to:\n{MAPPING_FILE}")
+            print(f"✓ Mapping saved to:\n{mapping_file}")
 
         # ---------------------------------------------
         # Save Evaluation Report
@@ -154,10 +160,10 @@ class Pipeline:
                     validation_report,
                     entities,
                 ),
-                REPORT_FILE,
+                report_file,
             )
 
-            print(f"✓ Evaluation report saved to:\n{REPORT_FILE}")
+            print(f"✓ Evaluation report saved to:\n{report_file}")
 
         print("\n========== Pipeline Completed Successfully ==========\n")
 
